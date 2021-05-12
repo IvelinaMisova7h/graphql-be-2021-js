@@ -9,11 +9,11 @@ dotenv.config();
 export default {
     Query: {
         user: async (root, {_id}) => {
-            const user = await User.findById(_id).populate("games");
+            const user = await User.findById(_id).populate("books");
             return user;
         },
         users: async () => {
-            const users = await User.find({}).populate("games");
+            const users = await User.find({}).populate("books");
             return users;
         },
         currentUser: async (root, args, context) => {
