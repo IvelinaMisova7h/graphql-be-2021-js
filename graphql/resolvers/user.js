@@ -51,11 +51,11 @@ export default {
                 {
                     runValidators: true,
                     new: true,
-                }).populate("games")
+                }).populate("books")
             return user;
         },
         deleteUser: async(root, {_id}) => {
-            const user = User.findOneAndDelete(_id).populate("games");
+            const user = User.findOneAndDelete(_id).populate("books");
             return user;
         },
         login: async(root, {email, password}) => {
