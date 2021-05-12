@@ -92,6 +92,7 @@ export default {
                 //  if (!email) { 
                 //   throw new ('Successfully logged out');
                 // }
+                console.log('Successfully logged out', context.user)
 
             return context.user;
         }
