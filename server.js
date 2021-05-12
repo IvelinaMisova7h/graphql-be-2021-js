@@ -22,6 +22,8 @@ const auth = jwt({
 
 
 
+
+
 const graphqlPath = "/graphql";
 
 mongoose.connect(db, {
@@ -47,16 +49,25 @@ async function startApolloServer() {
     playground: true,
   });
 
+
+
   const app = express();
-  app.use(
-      graphqlPath,
-      cors({
-          credentials: true,
+
+// bodyParser is needed just for POST.
+app.use('/graphql', bodyParser.json(), auth);
+app.use('/graphql', cors({ schema: true, }));
+
+(app).listen("8000");
+  // const app = express();
+  // app.use(
+  //     graphqlPath,
+  //     cors({
+  //         credentials: true,
           
-      }),
-      bodyParser.json(),
-      auth
-  );
+  //     }),
+  //     bodyParser.json(),
+  //     auth
+  // );
 
 server.applyMiddleware({ app, path: graphqlPath });
   await new Promise(resolve => app.listen({ port: process.env.PORT }, resolve));
