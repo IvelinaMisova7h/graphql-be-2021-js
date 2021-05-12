@@ -20,9 +20,6 @@ const auth = jwt({
   credentialsRequired: false,
 });
 
-const app = express();
-
-const PORT = process.env.PORT || "8000";
 
 
 const graphqlPath = "/graphql";
@@ -55,7 +52,7 @@ async function startApolloServer() {
       graphqlPath,
       cors({
           credentials: true,
-          
+          origin: 'http://localhost:4017/graphql'
       }),
       bodyParser.json(),
       auth
