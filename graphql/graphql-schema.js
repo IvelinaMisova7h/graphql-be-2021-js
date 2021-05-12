@@ -5,5 +5,5 @@ import resolvers from "./resolvers.js";
 export default makeExecutableSchema({
   typeDefs,
   resolvers,
-  tracing: true,
+  
 });
