@@ -52,7 +52,7 @@ async function startApolloServer() {
       graphqlPath,
       cors({
           credentials: true,
-          origin: 'http://localhost:4017/graphql'
+          
       }),
       bodyParser.json(),
       auth
