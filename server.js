@@ -20,6 +20,11 @@ const auth = jwt({
   credentialsRequired: false,
 });
 
+const app = express();
+
+const PORT = process.env.PORT || "8000";
+
+
 const graphqlPath = "/graphql";
 
 mongoose.connect(db, {
