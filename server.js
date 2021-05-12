@@ -50,7 +50,7 @@ async function startApolloServer() {
       graphqlPath,
       cors({
           credentials: true,
-          origin: process.env.FRONTEND_URL ?? "*",
+          
       }),
       bodyParser.json(),
       auth
